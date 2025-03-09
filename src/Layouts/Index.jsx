@@ -15,6 +15,8 @@ import Contact from "../Pages/Contact";
 import Service from "../Pages/Service";
 import { menuItem } from "./MenuItem";
 import WebsiteLayout from "./WebsiteLayout";
+import { useSelector } from "react-redux";
+import { SelectAuth } from "../reducers/authReducer";
 
 
 
@@ -46,7 +48,8 @@ import WebsiteLayout from "./WebsiteLayout";
 
 
 function Index() {
-  const auth = false;
+  const auth = useSelector(SelectAuth);
+  console.log("auth",auth);
   return (
     <>
       <BrowserRouter>

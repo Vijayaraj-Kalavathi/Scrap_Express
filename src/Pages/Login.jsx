@@ -1,11 +1,82 @@
 import React from 'react'
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup"
+import { Button, TextField, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import SpaIcon from '@mui/icons-material/Spa';
 
-function Login() {
-  return (
-    <div>
-      Login
-    </div>
-  )
+const schema = yup.object().shape({
+  username:yup.string().trim().required("Must enter the username"), 
+  password:yup.string().trim().required("Must enter the password"), 
+})
+
+const defaultValues = {
+username:"",
+password:"",
 }
 
-export default Login
+export default function Login() {
+  const navigate = useNavigate();
+
+    const {control, handleSubmit , formState:{errors}} = useForm({
+      mode:"onChange",
+      defaultValues,
+      resolver:yupResolver(schema)
+    })
+
+  const onSubmit = (data) =>{
+    console.log("data",data)
+
+    const auth = localStorage.getItem('auth')
+    console.log("auth",auth)
+    
+  }
+
+  return (
+    <div className='h-screen w-screen flex justify-center items-center p-[30px]'>
+     <div className=' bg-gray-200 h-[500px] w-[500px] flex flex-col justify-center items-center p-6 md:p-12 rounded-md'>
+      <div className='flex justify-center mb-12'>
+      <SpaIcon sx={{fontSize:"54px"}}/>
+      </div>
+      <Typography variant='h6' sx={{marginBottom:"20px"}} >SIGN IN</Typography>
+     <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+        name='username'
+        control={control}
+        render={({field})=>(
+           <TextField
+           {...field}
+           label="Username"
+           className='w-full'
+           error={!!errors?.username}
+           helperText={errors?.username?.message}
+           sx={{marginBottom:"24px"}}
+          
+           />
+        )}
+        />
+        <Controller
+        name='password'
+        control={control}
+        render={({field})=>(
+           <TextField
+          {...field}
+           label="Password"
+           error={!!errors?.password}
+           helperText={errors?.password?.message}
+           className='w-full mt-24'
+           sx={{marginBottom:"24px"}}
+           />
+        )}
+        />
+        <div className='flex justify-center'>
+        <Button variant='contained' type='submit'>Submit</Button>
+        </div>
+       
+      </form>
+     </div>
+     
+      </div>
+  )
+}

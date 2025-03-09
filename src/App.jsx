@@ -1,12 +1,17 @@
+import { Provider } from "react-redux";
 import Index from "./Layouts/Index";
+import { store } from "./store/store";
+
 
 
 
 function App() {
   return (
-    <div >
-      <Index />
-    </div>
+    <Provider store={store}>
+     <Index />
+    </Provider>
+      
+    
   );
 }
 
