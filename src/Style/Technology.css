@@ -1,0 +1,14 @@
+@media screen and (max-width: 700px) {
+    /* .iWchow {
+    display: none !important;
+    }
+    .bqCWu {
+    display: none !important; 
+    } */
+    .rec-arrow-left{
+      display: none !important; 
+    }
+    .rec-arrow-right{
+      display: none !important; 
+    }
+  }
