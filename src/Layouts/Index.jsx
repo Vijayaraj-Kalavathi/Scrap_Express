@@ -46,7 +46,7 @@ import WebsiteLayout from "./WebsiteLayout";
 
 
 function Index() {
-  const auth = true;
+  const auth = false;
   return (
     <>
       <BrowserRouter>
