@@ -17,6 +17,7 @@ import { menuItem } from "./MenuItem";
 import WebsiteLayout from "./WebsiteLayout";
 import { useSelector } from "react-redux";
 import { SelectAuth } from "../reducers/authReducer";
+import Branch from "../Pages/Branch";
 
 
 
@@ -71,6 +72,7 @@ function Index() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/image" element={<Image />} />
+            <Route path="/branch" element={<Branch/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/service" element={<Service />} />
           </Route>

@@ -10,8 +10,6 @@ function App() {
     <Provider store={store}>
      <Index />
     </Provider>
-      
-    
   );
 }
 

@@ -41,6 +41,8 @@ function WebsiteLayout() {
               <Link to="/image" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000]
              ${pathname === '/image' ? 'text-[#FF0000]' : ''
                 }`}>Image</Link>
+                <Link to="/branch" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/branch' ? 'text-[#FF0000]' : ''
+                }`}>Branch</Link>
               <Link to="/contact" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/contact' ? 'text-[#FF0000]' : ''
                 }`}>Contact</Link>
             </li>
@@ -67,6 +69,8 @@ function WebsiteLayout() {
                 }`} onClick={() => setOpen(false)}>Image</Link>
               <Link to="/contact" className={`py-3 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/contact' ? 'text-[#FF0000]' : ''
                 }`} onClick={() => setOpen(false)}>Contact</Link>
+                   <Link to="/branch" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/Branch' ? 'text-[#FF0000]' : ''
+                }`} onClick={() => setOpen(false)}>Branch</Link>
             </li>
             {/* <NavbarLink/> */}
             <li className='flex flex-col'>
