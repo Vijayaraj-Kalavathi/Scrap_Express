@@ -24,7 +24,7 @@ import Ac from "../Image/Ac.jpg";
 import Mobile from "../Image/Mobile.jpg";
 import Washing from "../Image/Washing.png";
 import Circuits from "../Image/Circuits.jpg";
-import { Grid, Typography } from '@mui/material';
+import { Grid,  } from '@mui/material';
 import {FaCanadianMapleLeaf} from "react-icons/fa";
 
 const Item = styled.div`
@@ -35,7 +35,7 @@ align-items: center;
 width: 100%;
 flex-direction:column;
 border-radius:18px;
-margin: 0 15px;
+
 
              `;
 

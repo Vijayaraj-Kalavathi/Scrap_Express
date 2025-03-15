@@ -5,6 +5,7 @@ import * as yup from "yup"
 import { Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import SpaIcon from '@mui/icons-material/Spa';
+import axiosInstance from '../AuthContext/AuthCard';
 
 const schema = yup.object().shape({
   username:yup.string().trim().required("Must enter the username"), 
@@ -25,11 +26,22 @@ export default function Login() {
       resolver:yupResolver(schema)
     })
 
-  const onSubmit = (data) =>{
+  const onSubmit = async(data) =>{
     console.log("data",data)
 
-    const auth = localStorage.getItem('auth')
-    console.log("auth",auth)
+    
+      try {
+          const response = await axiosInstance.post("/login",{email:"vijay@gmail.com",password:123});
+          console.log("res",response)
+          localStorage.setItem('auth', JSON.stringify());
+        
+      } catch (error) {
+          console.error("Failed to fetch products:", error);
+          throw error;
+      }
+ 
+
+    
     
   }
 

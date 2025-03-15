@@ -17,7 +17,7 @@ function WebsiteLayout() {
     localStorage.setItem('activeLink', pathname);
   }, [pathname]);
 
-  const defaultPath = pathname ? pathname : '/home';
+  const defaultPath = pathname ? pathname : '/';
 
   return (
     <>
@@ -32,7 +32,7 @@ function WebsiteLayout() {
           </div>
           <ul className='md:flex hidden uppercase items-center gap-2'>
             <li>
-              <Link to="/home" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/home' ? 'text-[#FF0000]' : ''
+              <Link to="/" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/' ? 'text-[#FF0000]' : ''
                 }`}>Home</Link>
               <Link to="/service" className={`py-7 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/service' ? 'text-[#FF0000]' : ''
                 }`}>Our Service</Link>
@@ -59,7 +59,7 @@ function WebsiteLayout() {
           {/* // mobile view */}
           <ul className={`md:hidden fixed h-full w-full bg-gray-300 bottom-0 py-0 pl-4 duration-500 top-[76px] ${open ? "left-0" : "left-[-100%]"}`}>
             <li className='flex flex-col'>
-              <Link to="/home" className={`py-3 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/home' ? 'text-[#FF0000]' : ''
+              <Link to="/" className={`py-3 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/' ? 'text-[#FF0000]' : ''
                 }`} onClick={() => setOpen(false)}>Home</Link>
               <Link to="/service" className={`py-3 px-3 inline-block hover:text-green-400 focus:text-[#FF0000] ${defaultPath === '/service' ? 'text-[#FF0000]' : ''
                 }`} onClick={() => setOpen(false)}>Our Service</Link>

@@ -2,7 +2,7 @@ import axios from "axios";
  
 // Create instance
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:5000/api", // Your API base URL
+    baseURL: "http://localhost:8000/app/v1/", // Your API base URL
 });
  
 // Function to attach interceptors
@@ -10,6 +10,7 @@ export const setupInterceptors = (token) => {
     // Request interceptor to add token
     axiosInstance.interceptors.request.use(
         (config) => {
+            console.log("config",config);
             if (token) {
                 config.headers['Authorization'] = `Bearer ${token}`;
             }
